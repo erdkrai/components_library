@@ -226,6 +226,7 @@ function getTextColor(buttonType, buttonState, btnBgVariant, param) {
                 case /* Normal */0 :
                     return "text-jp-2-light-gray-1500 hover:text-jp-2-light-gray-2000 fill-jp-2-light-gray-1500 hover:fill-jp-2-light-gray-2000";
                 case /* Loading */1 :
+                    return "text-jp-2-light-gray-1500 fill-jp-2-light-gray-1500";
                 case /* Disabled */2 :
                     return "text-jp-2-light-gray-600 fill-jp-2-light-gray-600";
                 
@@ -235,6 +236,7 @@ function getTextColor(buttonType, buttonState, btnBgVariant, param) {
                 case /* Normal */0 :
                     return "text-jp-2-light-gray-1500 hover:text-jp-2-light-gray-2000 fill-jp-2-light-gray-1500 hover:fill-jp-2-light-gray-2000";
                 case /* Loading */1 :
+                    return "text-jp-2-light-gray-1500 fill-jp-2-light-gray-1500";
                 case /* Disabled */2 :
                     return "text-jp-2-light-gray-600 fill-jp-2-light-gray-600";
                 

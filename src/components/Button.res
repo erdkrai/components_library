@@ -192,13 +192,13 @@ let getTextColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) 
     | Solid =>
       switch buttonState {
       | Disabled => "text-jp-2-light-gray-600 fill-jp-2-light-gray-600"
-      | Loading => "text-jp-2-light-gray-600 fill-jp-2-light-gray-600"
+      | Loading => "text-jp-2-light-gray-1500 fill-jp-2-light-gray-1500"
       | Normal => "text-jp-2-light-gray-1500 hover:text-jp-2-light-gray-2000 fill-jp-2-light-gray-1500 hover:fill-jp-2-light-gray-2000"
       }
     | Subtle =>
       switch buttonState {
       | Disabled => "text-jp-2-light-gray-600 fill-jp-2-light-gray-600"
-      | Loading => "text-jp-2-light-gray-600 fill-jp-2-light-gray-600"
+      | Loading => "text-jp-2-light-gray-1500 fill-jp-2-light-gray-1500"
       | Normal => "text-jp-2-light-gray-1500 hover:text-jp-2-light-gray-2000 fill-jp-2-light-gray-1500 hover:fill-jp-2-light-gray-2000"
       }
     | NoFill =>
