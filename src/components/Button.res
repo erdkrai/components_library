@@ -103,15 +103,15 @@ let getBGColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant: btnBgVa
       }
     | Subtle =>
       switch buttonState {
-      | Normal => "bg-jp-2-light-red-600 hover:bg-jp-2-light-red-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus"
-      | Loading => "bg-jp-2-light-red-600"
-      | Disabled => "bg-jp-2-light-red-300 shadow-jp-2-xs"
+      | Normal => "bg-jp-2-light-red-200 hover:bg-jp-2-light-red-300 focus:outline-none focus:shadow-jp-2-sm-error-focus"
+      | Loading => "bg-jp-2-light-red-200"
+      | Disabled => "bg-jp-2-light-red-100"
       }
     | NoFill =>
       switch buttonState {
-      | Normal => "bg-jp-2-light-red-600 hover:bg-jp-2-light-red-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus"
-      | Loading => "bg-jp-2-light-red-600"
-      | Disabled => "bg-jp-2-light-red-300 shadow-jp-2-xs"
+      | Normal => "hover:bg-jp-2-light-red-200 focus:outline-none focus:shadow-jp-2-sm-error-focus"
+      | Loading => "bg-jp-2-light-red-200"
+      | Disabled => ""
       }
     }
   | Success =>
@@ -124,15 +124,15 @@ let getBGColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant: btnBgVa
       }
     | Subtle =>
       switch buttonState {
-      | Normal => "bg-jp-2-light-green-600 hover:bg-jp-2-light-green-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus"
-      | Loading => "bg-jp-2-light-green-600"
-      | Disabled => "bg-jp-2-light-green-300 shadow-jp-2-xs"
+      | Normal => "bg-jp-2-light-green-200 hover:bg-jp-2-light-green-300 focus:outline-none focus:shadow-jp-2-sm-error-focus"
+      | Loading => "bg-jp-2-light-green-200"
+      | Disabled => "bg-jp-2-light-green-100"
       }
     | NoFill =>
       switch buttonState {
-      | Normal => "bg-jp-2-light-green-600 hover:bg-jp-2-light-green-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus"
-      | Loading => "bg-jp-2-light-green-600"
-      | Disabled => "bg-jp-2-light-green-300 shadow-jp-2-xs"
+      | Normal => "hover:bg-jp-2-light-green-200 focus:outline-none focus:shadow-jp-2-sm-error-focus"
+      | Loading => "bg-jp-2-light-green-200"
+      | Disabled => ""
       }
     }
   }
@@ -175,15 +175,15 @@ let getTextColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) 
       }
     | Subtle =>
       switch buttonState {
-      | Disabled => "text-white fill-white"
-      | Normal => "text-white fill-white"
-      | Loading => "text-white fill-white"
+      | Disabled => "text-jp-2-light-red-300 fill-jp-2-light-red-300"
+      | Normal => "text-jp-2-light-red-600 fill-jp-2-light-red-600"
+      | Loading => "text-jp-2-light-red-600 fill-jp-2-light-red-600"
       }
     | NoFill =>
       switch buttonState {
-      | Disabled => "text-white fill-white"
-      | Normal => "text-white fill-white"
-      | Loading => "text-white fill-white"
+      | Disabled => "text-jp-2-light-red-300 fill-jp-2-light-red-300"
+      | Normal => "text-jp-2-light-red-600 fill-jp-2-light-red-600"
+      | Loading => "text-jp-2-light-red-600 fill-jp-2-light-red-600"
       }
     }
 
@@ -218,15 +218,15 @@ let getTextColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) 
       }
     | Subtle =>
       switch buttonState {
-      | Disabled => "text-white fill-white"
-      | Loading => "text-white fill-white"
-      | Normal => "text-white fill-white"
+      | Disabled => "text-jp-2-light-green-300 fill-jp-2-light-green-300"
+      | Loading => "text-jp-2-light-green-600 fill-jp-2-light-green-600"
+      | Normal => "text-jp-2-light-green-600 fill-jp-2-light-green-600"
       }
     | NoFill =>
       switch buttonState {
-      | Disabled => "text-white fill-white"
-      | Loading => "text-white fill-white"
-      | Normal => "text-white fill-white"
+      | Disabled => "text-jp-2-light-green-300 fill-jp-2-light-green-300"
+      | Loading => "text-jp-2-light-green-600 fill-jp-2-light-green-600"
+      | Normal => "text-jp-2-light-green-600 fill-jp-2-light-green-600"
       }
     }
   }

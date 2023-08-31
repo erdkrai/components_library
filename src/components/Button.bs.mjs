@@ -126,21 +126,21 @@ function getBGColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
           case /* Subtle */1 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    return "bg-jp-2-light-red-600 hover:bg-jp-2-light-red-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus";
+                    return "bg-jp-2-light-red-200 hover:bg-jp-2-light-red-300 focus:outline-none focus:shadow-jp-2-sm-error-focus";
                 case /* Loading */1 :
-                    return "bg-jp-2-light-red-600";
+                    return "bg-jp-2-light-red-200";
                 case /* Disabled */2 :
-                    return "bg-jp-2-light-red-300 shadow-jp-2-xs";
+                    return "bg-jp-2-light-red-100";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    return "bg-jp-2-light-red-600 hover:bg-jp-2-light-red-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus";
+                    return "hover:bg-jp-2-light-red-200 focus:outline-none focus:shadow-jp-2-sm-error-focus";
                 case /* Loading */1 :
-                    return "bg-jp-2-light-red-600";
+                    return "bg-jp-2-light-red-200";
                 case /* Disabled */2 :
-                    return "bg-jp-2-light-red-300 shadow-jp-2-xs";
+                    return "";
                 
               }
           
@@ -160,21 +160,21 @@ function getBGColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
           case /* Subtle */1 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    return "bg-jp-2-light-green-600 hover:bg-jp-2-light-green-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus";
+                    return "bg-jp-2-light-green-200 hover:bg-jp-2-light-green-300 focus:outline-none focus:shadow-jp-2-sm-error-focus";
                 case /* Loading */1 :
-                    return "bg-jp-2-light-green-600";
+                    return "bg-jp-2-light-green-200";
                 case /* Disabled */2 :
-                    return "bg-jp-2-light-green-300 shadow-jp-2-xs";
+                    return "bg-jp-2-light-green-100";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    return "bg-jp-2-light-green-600 hover:bg-jp-2-light-green-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-error-focus";
+                    return "hover:bg-jp-2-light-green-200 focus:outline-none focus:shadow-jp-2-sm-error-focus";
                 case /* Loading */1 :
-                    return "bg-jp-2-light-green-600";
+                    return "bg-jp-2-light-green-200";
                 case /* Disabled */2 :
-                    return "bg-jp-2-light-green-300 shadow-jp-2-xs";
+                    return "";
                 
               }
           
@@ -264,16 +264,18 @@ function getTextColor(buttonType, buttonState, btnBgVariant, param) {
               switch (buttonState) {
                 case /* Normal */0 :
                 case /* Loading */1 :
+                    return "text-jp-2-light-red-600 fill-jp-2-light-red-600";
                 case /* Disabled */2 :
-                    return "text-white fill-white";
+                    return "text-jp-2-light-red-300 fill-jp-2-light-red-300";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
                 case /* Loading */1 :
+                    return "text-jp-2-light-red-600 fill-jp-2-light-red-600";
                 case /* Disabled */2 :
-                    return "text-white fill-white";
+                    return "text-jp-2-light-red-300 fill-jp-2-light-red-300";
                 
               }
           
@@ -292,16 +294,18 @@ function getTextColor(buttonType, buttonState, btnBgVariant, param) {
               switch (buttonState) {
                 case /* Normal */0 :
                 case /* Loading */1 :
+                    return "text-jp-2-light-green-600 fill-jp-2-light-green-600";
                 case /* Disabled */2 :
-                    return "text-white fill-white";
+                    return "text-jp-2-light-green-300 fill-jp-2-light-green-300";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
                 case /* Loading */1 :
+                    return "text-jp-2-light-green-600 fill-jp-2-light-green-600";
                 case /* Disabled */2 :
-                    return "text-white fill-white";
+                    return "text-jp-2-light-green-300 fill-jp-2-light-green-300";
                 
               }
           
