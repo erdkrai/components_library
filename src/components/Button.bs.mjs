@@ -22,21 +22,21 @@ function getBGColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
           case /* Subtle */1 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    return "bg-jp-2-light-primary-600 hover:bg-jp-2-light-primary-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-primary-focus";
+                    return "bg-jp-2-light-primary-200 hover:bg-jp-2-light-primary-300 focus:outline-none focus:shadow-jp-2-sm-primary-focus";
                 case /* Loading */1 :
-                    return "bg-jp-2-light-primary-600";
+                    return "bg-jp-2-light-primary-200";
                 case /* Disabled */2 :
-                    return "bg-jp-2-light-primary-300 shadow-jp-2-xs";
+                    return "bg-jp-2-light-primary-100";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    return "bg-jp-2-light-primary-600 hover:bg-jp-2-light-primary-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-primary-focus";
+                    return "hover:bg-jp-2-light-primary-200 focus:outline-none focus:shadow-jp-2-sm-primary-focus";
                 case /* Loading */1 :
-                    return "bg-jp-2-light-primary-600";
+                    return "bg-jp-2-light-primary-200";
                 case /* Disabled */2 :
-                    return "bg-jp-2-light-primary-300 shadow-jp-2-xs";
+                    return "";
                 
               }
           
@@ -203,16 +203,18 @@ function getTextColor(buttonType, buttonState, btnBgVariant, param) {
               switch (buttonState) {
                 case /* Normal */0 :
                 case /* Loading */1 :
+                    return "text-jp-2-light-primary-600 fill-jp-2-light-primary-600";
                 case /* Disabled */2 :
-                    return "text-white fill-white";
+                    return "text-jp-2-light-primary-300 fill-jp-2-light-primary-300";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
                 case /* Loading */1 :
+                    return "text-jp-2-light-primary-600 fill-jp-2-light-primary-600";
                 case /* Disabled */2 :
-                    return "text-white fill-white";
+                    return "text-jp-2-light-primary-300 fill-jp-2-light-primary-300";
                 
               }
           

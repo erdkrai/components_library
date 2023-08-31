@@ -30,15 +30,15 @@ let getBGColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant: btnBgVa
       }
     | Subtle =>
       switch buttonState {
-      | Normal => "bg-jp-2-light-primary-600 hover:bg-jp-2-light-primary-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-primary-focus"
-      | Loading => "bg-jp-2-light-primary-600"
-      | Disabled => "bg-jp-2-light-primary-300 shadow-jp-2-xs"
+      | Normal => "bg-jp-2-light-primary-200 hover:bg-jp-2-light-primary-300 focus:outline-none focus:shadow-jp-2-sm-primary-focus"
+      | Loading => "bg-jp-2-light-primary-200"
+      | Disabled => "bg-jp-2-light-primary-100"
       }
     | NoFill =>
       switch buttonState {
-      | Normal => "bg-jp-2-light-primary-600 hover:bg-jp-2-light-primary-700 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-primary-focus"
-      | Loading => "bg-jp-2-light-primary-600"
-      | Disabled => "bg-jp-2-light-primary-300 shadow-jp-2-xs"
+      | Normal => "hover:bg-jp-2-light-primary-200 focus:outline-none focus:shadow-jp-2-sm-primary-focus"
+      | Loading => "bg-jp-2-light-primary-200"
+      | Disabled => ""
       }
     }
   | Secondary =>
@@ -153,15 +153,15 @@ let getTextColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) 
       }
     | Subtle =>
       switch buttonState {
-      | Disabled => "text-white fill-white"
-      | Normal => "text-white fill-white"
-      | Loading => "text-white fill-white"
+      | Disabled => "text-jp-2-light-primary-300 fill-jp-2-light-primary-300"
+      | Normal => "text-jp-2-light-primary-600 fill-jp-2-light-primary-600"
+      | Loading => "text-jp-2-light-primary-600 fill-jp-2-light-primary-600"
       }
     | NoFill =>
       switch buttonState {
-      | Disabled => "text-white fill-white"
-      | Normal => "text-white fill-white"
-      | Loading => "text-white fill-white"
+      | Disabled => "text-jp-2-light-primary-300 fill-jp-2-light-primary-300"
+      | Normal => "text-jp-2-light-primary-600 fill-jp-2-light-primary-600"
+      | Loading => "text-jp-2-light-primary-600 fill-jp-2-light-primary-600"
       }
     }
 
