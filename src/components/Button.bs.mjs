@@ -5,7 +5,7 @@ import * as Belt_Option from "rescript/lib/es6/belt_Option.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as JsxRuntime from "react/jsx-runtime";
 
-function getBGColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
+function getBGColor(buttonType, buttonState, btnBgVariant, param) {
   switch (buttonType) {
     case /* Primary */0 :
         switch (btnBgVariant) {
@@ -46,67 +46,31 @@ function getBGColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
           case /* Solid */0 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    if (showBorder) {
-                      return "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus";
-                    } else {
-                      return "hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs";
-                    }
+                    return "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus border border-jp-2-light-gray-600";
                 case /* Loading */1 :
-                    if (showBorder) {
-                      return "bg-white text-jp-gray-890";
-                    } else {
-                      return "text-jp-gray-890";
-                    }
+                    return "bg-white border border-jp-2-light-gray-600 shadow-jp-2-xs";
                 case /* Disabled */2 :
-                    if (showBorder) {
-                      return "bg-jp-2-light-gray-300 shadow-jp-2-xs";
-                    } else {
-                      return "px-4 shadow-jp-2-xs";
-                    }
+                    return "bg-jp-2-light-gray-300 shadow-jp-2-xs border border-jp-2-light-gray-400";
                 
               }
           case /* Subtle */1 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    if (showBorder) {
-                      return "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus";
-                    } else {
-                      return "hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs";
-                    }
+                    return "bg-jp-2-light-gray-200 hover:bg-jp-2-light-gray-300 focus:outline-none focus:shadow-jp-2-sm-gray-focus";
                 case /* Loading */1 :
-                    if (showBorder) {
-                      return "bg-white text-jp-gray-890";
-                    } else {
-                      return "text-jp-gray-890";
-                    }
+                    return "bg-jp-2-light-gray-200";
                 case /* Disabled */2 :
-                    if (showBorder) {
-                      return "bg-jp-2-light-gray-300 shadow-jp-2-xs";
-                    } else {
-                      return "px-4 shadow-jp-2-xs";
-                    }
+                    return "bg-jp-2-light-gray-300 shadow-jp-2-xs";
                 
               }
           case /* NoFill */2 :
               switch (buttonState) {
                 case /* Normal */0 :
-                    if (showBorder) {
-                      return "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus";
-                    } else {
-                      return "hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs";
-                    }
+                    return "hover:bg-jp-2-light-gray-200 focus:outline-none focus:shadow-jp-2-sm-gray-focus";
                 case /* Loading */1 :
-                    if (showBorder) {
-                      return "bg-white text-jp-gray-890";
-                    } else {
-                      return "text-jp-gray-890";
-                    }
+                    return "bg-jp-2-light-gray-200";
                 case /* Disabled */2 :
-                    if (showBorder) {
-                      return "bg-jp-2-light-gray-300 shadow-jp-2-xs";
-                    } else {
-                      return "px-4 shadow-jp-2-xs";
-                    }
+                    return "";
                 
               }
           
@@ -183,8 +147,8 @@ function getBGColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
   }
 }
 
-function useGetBgColor(buttonType, buttonState, showBorder, btnBgVariant, param) {
-  return getBGColor(buttonType, buttonState, showBorder, btnBgVariant, undefined);
+function useGetBgColor(buttonType, buttonState, btnBgVariant, param) {
+  return getBGColor(buttonType, buttonState, btnBgVariant, undefined);
 }
 
 function getTextColor(buttonType, buttonState, btnBgVariant, param) {
@@ -246,6 +210,7 @@ function getTextColor(buttonType, buttonState, btnBgVariant, param) {
                 case /* Normal */0 :
                     return "text-jp-2-light-gray-1500 hover:text-jp-2-light-gray-2000 fill-jp-2-light-gray-1500 hover:fill-jp-2-light-gray-2000";
                 case /* Loading */1 :
+                    return "text-jp-2-light-gray-1500 fill-jp-2-light-gray-1500";
                 case /* Disabled */2 :
                     return "text-jp-2-light-gray-600 fill-jp-2-light-gray-600";
                 
@@ -329,7 +294,6 @@ function Button(props) {
   var flattenTop = props.flattenTop;
   var flattenBottom = props.flattenBottom;
   var type_ = props.type_;
-  var showBorder = props.showBorder;
   var rightIcon = props.rightIcon;
   var leftIcon = props.leftIcon;
   var buttonVariant = props.buttonVariant;
@@ -343,7 +307,6 @@ function Button(props) {
   var buttonType$1 = buttonType !== undefined ? buttonType : /* Primary */0;
   var btnBgVariant$1 = btnBgVariant !== undefined ? btnBgVariant : /* Solid */0;
   var buttonVariant$1 = buttonVariant !== undefined ? buttonVariant : /* Fit */0;
-  var showBorder$1 = showBorder !== undefined ? showBorder : true;
   var type_$1 = type_ !== undefined ? type_ : "button";
   var flattenBottom$1 = flattenBottom !== undefined ? flattenBottom : false;
   var flattenTop$1 = flattenTop !== undefined ? flattenTop : false;
@@ -428,53 +391,12 @@ function Button(props) {
   var iconSize = buttonSize >= 2 ? "w-3.5 h-3.5" : "w-5 h-5";
   var badgeSpacing = buttonSize !== 0 ? "px-2 mr-0.5" : "px-2 mb-1 mr-0.5";
   var badgeTextSize = buttonSize !== 0 ? "text-sm" : "text-base";
-  var backColor = useGetBgColor(buttonType$1, buttonState$1, showBorder$1, btnBgVariant$1, undefined);
+  var backColor = useGetBgColor(buttonType$1, buttonState$1, btnBgVariant$1, undefined);
   var textColor = useGetTextColor(buttonType$1, buttonState$1, btnBgVariant$1, undefined);
   var roundedBottom = flattenBottom$1 ? "rounded-b-none" : "";
   var roundedTop = flattenTop$1 ? "rounded-t-none" : "";
   var roundedDirection = buttonSize >= 2 ? "rounded-md" : "rounded-lg";
   var roundedClass = "" + roundedDirection + " " + roundedBottom + " " + roundedTop + "";
-  var borderWidth = showBorder$1 ? "border border-x-1 focus:border-x" : "border-0";
-  var borderStyle;
-  switch (buttonType$1) {
-    case /* Primary */0 :
-        borderStyle = "";
-        break;
-    case /* Secondary */1 :
-        if (showBorder$1) {
-          borderStyle = buttonState$1 >= 2 ? "" + borderWidth + " border-jp-2-light-gray-400" : "" + borderWidth + " border-jp-2-light-gray-600";
-        } else {
-          switch (buttonState$1) {
-            case /* Normal */0 :
-            case /* Loading */1 :
-                borderStyle = borderWidth;
-                break;
-            case /* Disabled */2 :
-                borderStyle = "";
-                break;
-            
-          }
-        }
-        break;
-    case /* Delete */2 :
-        borderStyle = "";
-        break;
-    case /* Success */3 :
-        switch (buttonState$1) {
-          case /* Normal */0 :
-              borderStyle = "" + borderWidth + " border-jp-gray-500";
-              break;
-          case /* Loading */1 :
-              borderStyle = "" + borderWidth + " border-jp-gray-600 border-opacity-75";
-              break;
-          case /* Disabled */2 :
-              borderStyle = "";
-              break;
-          
-        }
-        break;
-    
-  }
   var dis = buttonState$1 !== 0;
   var handleClick = function (ev) {
     if (onClick !== undefined) {
@@ -524,7 +446,7 @@ function Button(props) {
                         className: iconSize
                       }) : null
               ],
-              className: "flex justify-center " + heightClass + " " + newThemeGap + " " + conditionalButtonStyles + " items-center " + borderStyle + "  " + textColor + " " + cursorType + " " + paddingClass + " " + lengthStyle + " overflow-hidden",
+              className: "flex justify-center " + heightClass + " " + newThemeGap + " " + conditionalButtonStyles + " items-center  " + textColor + " " + cursorType + " " + paddingClass + " " + lengthStyle + " overflow-hidden",
               disabled: dis,
               type: type_$1,
               onKeyPress: (function (e) {

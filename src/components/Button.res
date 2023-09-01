@@ -18,7 +18,7 @@ type badge = {
   color: badgeColor,
 }
 
-let getBGColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant: btnBgVariant, ()) =>
+let getBGColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) =>
   switch buttonType {
   | Primary =>
     switch btnBgVariant {
@@ -45,51 +45,21 @@ let getBGColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant: btnBgVa
     switch btnBgVariant {
     | Solid =>
       switch buttonState {
-      | Normal =>
-        if showBorder {
-          "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus"
-        } else {
-          "hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs"
-        }
-      | Loading => showBorder ? "bg-white text-jp-gray-890" : "text-jp-gray-890"
-      | Disabled =>
-        if showBorder {
-          "bg-jp-2-light-gray-300 shadow-jp-2-xs"
-        } else {
-          "px-4 shadow-jp-2-xs"
-        }
+      | Normal => "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus border border-jp-2-light-gray-600"
+      | Loading => "bg-white border border-jp-2-light-gray-600 shadow-jp-2-xs"
+      | Disabled => "bg-jp-2-light-gray-300 shadow-jp-2-xs border border-jp-2-light-gray-400"
       }
     | Subtle =>
       switch buttonState {
-      | Normal =>
-        if showBorder {
-          "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus"
-        } else {
-          "hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs"
-        }
-      | Loading => showBorder ? "bg-white text-jp-gray-890" : "text-jp-gray-890"
-      | Disabled =>
-        if showBorder {
-          "bg-jp-2-light-gray-300 shadow-jp-2-xs"
-        } else {
-          "px-4 shadow-jp-2-xs"
-        }
+      | Normal => "bg-jp-2-light-gray-200 hover:bg-jp-2-light-gray-300 focus:outline-none focus:shadow-jp-2-sm-gray-focus"
+      | Loading => "bg-jp-2-light-gray-200"
+      | Disabled => "bg-jp-2-light-gray-300 shadow-jp-2-xs"
       }
     | NoFill =>
       switch buttonState {
-      | Normal =>
-        if showBorder {
-          "bg-white hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs focus:shadow-jp-2-sm-gray-focus"
-        } else {
-          "hover:bg-jp-2-light-gray-100 focus:outline-none shadow-jp-2-xs"
-        }
-      | Loading => showBorder ? "bg-white text-jp-gray-890" : "text-jp-gray-890"
-      | Disabled =>
-        if showBorder {
-          "bg-jp-2-light-gray-300 shadow-jp-2-xs"
-        } else {
-          "px-4 shadow-jp-2-xs"
-        }
+      | Normal => "hover:bg-jp-2-light-gray-200 focus:outline-none focus:shadow-jp-2-sm-gray-focus"
+      | Loading => "bg-jp-2-light-gray-200"
+      | Disabled => ""
       }
     }
 
@@ -137,8 +107,8 @@ let getBGColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant: btnBgVa
     }
   }
 
-let useGetBgColor = (~buttonType, ~buttonState, ~showBorder, ~btnBgVariant, ()) => {
-  getBGColor(~buttonType, ~buttonState, ~showBorder, ~btnBgVariant, ())
+let useGetBgColor = (~buttonType, ~buttonState, ~btnBgVariant, ()) => {
+  getBGColor(~buttonType, ~buttonState, ~btnBgVariant, ())
 }
 
 let getTextColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) =>
@@ -204,7 +174,7 @@ let getTextColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) 
     | NoFill =>
       switch buttonState {
       | Disabled => "text-jp-2-light-gray-600 fill-jp-2-light-gray-600"
-      | Loading => "text-jp-2-light-gray-600 fill-jp-2-light-gray-600"
+      | Loading => "text-jp-2-light-gray-1500 fill-jp-2-light-gray-1500"
       | Normal => "text-jp-2-light-gray-1500 hover:text-jp-2-light-gray-2000 fill-jp-2-light-gray-1500 hover:fill-jp-2-light-gray-2000"
       }
     }
@@ -248,7 +218,6 @@ let make = (
   ~buttonSize: option<buttonSize>=?,
   ~leftIcon: option<React.element>=?,
   ~rightIcon: option<React.element>=?,
-  ~showBorder=true,
   ~type_="button",
   ~flattenBottom=false,
   ~flattenTop=false,
@@ -333,7 +302,7 @@ let make = (
   | Large => "text-base"
   }
 
-  let backColor = useGetBgColor(~buttonType, ~buttonState, ~showBorder, ~btnBgVariant, ())
+  let backColor = useGetBgColor(~buttonType, ~buttonState, ~btnBgVariant, ())
   let textColor = useGetTextColor(~buttonType, ~buttonState, ~btnBgVariant, ())
 
   let roundedClass = {
@@ -346,40 +315,6 @@ let make = (
     }
 
     `${roundedDirection} ${roundedBottom} ${roundedTop}`
-  }
-
-  let borderStyle = {
-    let borderWidth = if showBorder {
-      "border border-x-1 focus:border-x"
-    } else {
-      "border-0"
-    }
-    switch buttonType {
-    | Primary =>
-      switch buttonState {
-      | Disabled => ""
-      | _ => ""
-      }
-    | Secondary =>
-      showBorder
-        ? switch buttonState {
-          | Disabled => `${borderWidth} border-jp-2-light-gray-400`
-          | _ => `${borderWidth} border-jp-2-light-gray-600`
-          }
-        : switch buttonState {
-          | Disabled => ""
-          | Loading => borderWidth
-          | _ => borderWidth
-          }
-    | Delete => ""
-
-    | _ =>
-      switch buttonState {
-      | Disabled => ""
-      | Loading => `${borderWidth} border-jp-gray-600 border-opacity-75`
-      | _ => `${borderWidth} border-jp-gray-500`
-      }
-    }
   }
 
   let dis = switch buttonState {
@@ -420,7 +355,7 @@ let make = (
         e->ReactEvent.Keyboard.preventDefault
       }
     }}
-    className={`flex justify-center ${heightClass} ${newThemeGap} ${conditionalButtonStyles} items-center ${borderStyle}  ${textColor} ${cursorType} ${paddingClass} ${lengthStyle} ${customTextOverFlowClass}`}
+    className={`flex justify-center ${heightClass} ${newThemeGap} ${conditionalButtonStyles} items-center  ${textColor} ${cursorType} ${paddingClass} ${lengthStyle} ${customTextOverFlowClass}`}
     onClick=handleClick>
     {if buttonState == Loading {
       <span className={`flex items-center mx-2 animate-spin`}>
