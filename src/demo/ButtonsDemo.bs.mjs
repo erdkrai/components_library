@@ -29,20 +29,6 @@ var Section = {
 
 function ButtonsDemo$ButtonsList(props) {
   var heading = props.heading;
-  var buttonType;
-  switch (heading) {
-    case "Primary" :
-        buttonType = /* Primary */0;
-        break;
-    case "Secondary" :
-        buttonType = /* Secondary */1;
-        break;
-    case "Success" :
-        buttonType = /* Success */3;
-        break;
-    default:
-      buttonType = /* Delete */2;
-  }
   var text = "Create User";
   var leftIcon;
   switch (heading) {
@@ -102,29 +88,18 @@ function ButtonsDemo$ButtonsList(props) {
             xmlns: "http://www.w3.org/2000/svg"
           });
   }
-  var getBtnVariant = function (btnBgVariant) {
-    switch (btnBgVariant) {
-      case /* Solid */0 :
-          return "Solid";
-      case /* Subtle */1 :
-          return "Subtle";
-      case /* NoFill */2 :
-          return "NoFill";
-      
-    }
-  };
   return [
-            /* Solid */0,
-            /* Subtle */1,
-            /* NoFill */2
+            "Solid",
+            "Subtle",
+            "NoFill"
           ].map(function (btnBgVariant, index) {
-              var heading$1 = heading + " - " + getBtnVariant(btnBgVariant);
+              var heading$1 = heading + " - " + btnBgVariant;
               return JsxRuntime.jsx(ButtonsDemo$Section, {
                           heading: heading$1,
                           children: [
-                              /* Normal */0,
-                              /* Loading */1,
-                              /* Disabled */2
+                              "Normal",
+                              "Loading",
+                              "Disabled"
                             ].map(function (buttonState) {
                                 return JsxRuntime.jsxs("div", {
                                             children: [
@@ -136,7 +111,7 @@ function ButtonsDemo$ButtonsList(props) {
                                                           return JsxRuntime.jsx(Button.make, {
                                                                       buttonState: buttonState,
                                                                       text: text,
-                                                                      buttonType: buttonType,
+                                                                      buttonType: heading,
                                                                       btnBgVariant: btnBgVariant,
                                                                       buttonVariant: buttonVariant,
                                                                       buttonSize: /* Large */0,
@@ -154,7 +129,7 @@ function ButtonsDemo$ButtonsList(props) {
                                                           return JsxRuntime.jsx(Button.make, {
                                                                       buttonState: buttonState,
                                                                       text: text,
-                                                                      buttonType: buttonType,
+                                                                      buttonType: heading,
                                                                       btnBgVariant: btnBgVariant,
                                                                       buttonVariant: buttonVariant,
                                                                       buttonSize: /* Medium */1,
@@ -172,7 +147,7 @@ function ButtonsDemo$ButtonsList(props) {
                                                           return JsxRuntime.jsx(Button.make, {
                                                                       buttonState: buttonState,
                                                                       text: text,
-                                                                      buttonType: buttonType,
+                                                                      buttonType: heading,
                                                                       btnBgVariant: btnBgVariant,
                                                                       buttonVariant: buttonVariant,
                                                                       buttonSize: /* Small */2,
@@ -204,7 +179,7 @@ function ButtonsDemo(props) {
                       heading: "Secondary"
                     }),
                 JsxRuntime.jsx(ButtonsDemo$ButtonsList, {
-                      heading: "Destructive"
+                      heading: "Delete"
                     }),
                 JsxRuntime.jsx(ButtonsDemo$ButtonsList, {
                       heading: "Success"

@@ -19,12 +19,8 @@ module Section = {
 module ButtonsList = {
   @react.component
   let make = (~heading) => {
-    let buttonType: buttonType = switch heading {
-    | "Primary" => Primary
-    | "Secondary" => Secondary
-    | "Success" => Success
-    | _ => Delete
-    }
+    let buttonType = heading
+
     let text = "Create User"
     let leftIcon = switch heading {
     | "Primary" =>
@@ -68,19 +64,12 @@ module ButtonsList = {
       </svg>
     }
 
-    let getBtnVariant = btnBgVariant =>
-      switch btnBgVariant {
-      | Solid => "Solid"
-      | Subtle => "Subtle"
-      | NoFill => "NoFill"
-      }
-
     {
-      [Solid, Subtle, NoFill]
+      ["Solid", "Subtle", "NoFill"]
       ->Js.Array2.mapi((btnBgVariant, index) => {
-        let heading = heading ++ " - " ++ getBtnVariant(btnBgVariant)
+        let heading = heading ++ " - " ++ btnBgVariant
         <Section key={index->Belt.Int.toString} heading>
-          {[Normal, Loading, Disabled]
+          {["Normal", "Loading", "Disabled"]
           ->Js.Array2.map(buttonState => {
             <div className="flex gap-6 items-center">
               <div className="flex items-center gap-6">
@@ -155,7 +144,7 @@ let make = () => {
   <div className="flex flex-1 flex-col overflow-scroll p-12">
     <ButtonsList heading="Primary" />
     <ButtonsList heading="Secondary" />
-    <ButtonsList heading="Destructive" />
+    <ButtonsList heading="Delete" />
     <ButtonsList heading="Success" />
   </div>
 }

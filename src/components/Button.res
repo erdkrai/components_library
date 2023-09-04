@@ -208,14 +208,14 @@ let useGetTextColor = (~buttonType, ~buttonState, ~btnBgVariant, ()) => {
 @react.component
 let make = (
   ~loadingText="Loading..",
-  ~buttonState: buttonState=Normal,
+  ~buttonState="Normal",
   ~text=?,
   ~isSelectBoxButton=false,
-  ~buttonType: buttonType=Primary,
-  ~btnBgVariant: btnBgVariant=Solid,
+  ~buttonType="Primary",
+  ~btnBgVariant="Solid",
   ~isDropdownOpen=false,
-  ~buttonVariant: buttonVariant=Fit,
-  ~buttonSize: option<buttonSize>=?,
+  ~buttonVariant: buttonVariant=Fit, //declare str => variant
+  ~buttonSize=Large, //declare str => variant
   ~leftIcon: option<React.element>=?,
   ~rightIcon: option<React.element>=?,
   ~type_="button",
@@ -231,8 +231,25 @@ let make = (
   ~ellipsisOnly=false,
   ~isPhoneDropdown=false,
 ) => {
+  // converting props to Defined Variants
+  let buttonState = switch buttonState {
+  | "Loading" => Loading
+  | "Disabled" => Disabled
+  | _ => Normal
+  }
+  let buttonType = switch buttonType {
+  | "Secondary" => Secondary
+  | "Delete" => Delete
+  | "Success" => Success
+  | _ => Primary
+  }
+  let btnBgVariant = switch btnBgVariant {
+  | "Subtle" => Subtle
+  | "NoFill" => NoFill
+  | _ => Solid
+  }
+
   let customTextOverFlowClass = "overflow-hidden"
-  let buttonSize: buttonSize = buttonSize->Belt.Option.getWithDefault(Large)
   let lengthStyle = switch buttonVariant {
   | Fit => ""
   | Long => "w-92.5"
