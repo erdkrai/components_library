@@ -13,6 +13,7 @@
     "re:build": "rescript",
     "re:clean": "rescript clean",
     "re:start": "rescript build -w",
+    "re:format": "rescript format -all",
     "start": "vite",
     "build": "node build.js",
     "preview": "vite preview"

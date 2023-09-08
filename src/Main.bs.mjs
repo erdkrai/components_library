@@ -6,23 +6,21 @@ import * as Button from "./components/Button.bs.mjs";
 import * as Client from "react-dom/client";
 import * as JsxRuntime from "react/jsx-runtime";
 
-import './index.css'
-;
+import "./index.css";
 
-require("tailwindcss/tailwind.css")
-;
+import "tailwindcss/tailwind.css";
 
 var domElement = document.querySelector("#root");
 
 if (!(domElement == null)) {
-  Client.createRoot(domElement).render(JsxRuntime.jsx(React.StrictMode, {
-            children: JsxRuntime.jsx(App.make, {})
-          }));
+  Client.createRoot(domElement).render(
+    JsxRuntime.jsx(React.StrictMode, {
+      children: JsxRuntime.jsx(App.make, {}),
+    })
+  );
 }
 
 var Button$1 = Button.make;
 
-export {
-  Button$1 as Button,
-}
+export { Button$1 as Button };
 /*  Not a pure module */

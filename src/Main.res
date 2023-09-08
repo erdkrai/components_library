@@ -1,5 +1,5 @@
 %%raw("import './index.css'")
-%%raw(`require("tailwindcss/tailwind.css")`)
+%%raw(`import "tailwindcss/tailwind.css"`)
 let \"Button" = Button.make
 switch ReactDOM.querySelector("#root") {
 | Some(domElement) =>

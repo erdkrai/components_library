@@ -272,7 +272,6 @@ module.exports = {
         md: "6px",
         lg: "8px",
         "2xl": "16px",
-
       },
       boxShadow: {
         "card-sm": "0px 1px 5px rgba(0, 0, 0, 0.15)",
@@ -376,7 +375,5 @@ module.exports = {
       };
       addUtilities(newUtilities);
     }),
-
-
   ],
 };
