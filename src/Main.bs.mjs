@@ -9,7 +9,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 import './index.css'
 ;
 
-import "tailwindcss/tailwind.css"
+require("tailwindcss/tailwind.css")
 ;
 
 var domElement = document.querySelector("#root");
