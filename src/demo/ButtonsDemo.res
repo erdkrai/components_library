@@ -73,7 +73,7 @@ module ButtonsList = {
           ->Js.Array2.map(buttonState => {
             <div className="flex gap-6 items-center">
               <div className="flex items-center gap-6">
-                {[Fit, Long]
+                {["Fit", "Long"]
                 ->Js.Array2.mapi(
                   (buttonVariant, index) => {
                     <Button
@@ -83,7 +83,7 @@ module ButtonsList = {
                       btnBgVariant
                       leftIcon
                       rightIcon
-                      buttonSize={Large}
+                      buttonSize="Large"
                       buttonVariant
                       buttonState
                     />
@@ -92,7 +92,7 @@ module ButtonsList = {
                 ->React.array}
               </div>
               <div className="flex items-center gap-6">
-                {[Fit, Long]
+                {["Fit", "Long"]
                 ->Js.Array2.mapi(
                   (buttonVariant, index) => {
                     <Button
@@ -102,7 +102,7 @@ module ButtonsList = {
                       btnBgVariant
                       leftIcon
                       rightIcon
-                      buttonSize={Medium}
+                      buttonSize="Medium"
                       buttonVariant
                       buttonState
                     />
@@ -111,7 +111,7 @@ module ButtonsList = {
                 ->React.array}
               </div>
               <div className="flex items-center gap-6">
-                {[Fit, Long]
+                {["Fit", "Long"]
                 ->Js.Array2.mapi(
                   (buttonVariant, index) => {
                     <Button
@@ -121,7 +121,7 @@ module ButtonsList = {
                       btnBgVariant
                       leftIcon
                       rightIcon
-                      buttonSize={Small}
+                      buttonSize="Small"
                       buttonVariant
                       buttonState
                     />

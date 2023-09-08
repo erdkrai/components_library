@@ -5,11 +5,8 @@ type buttonType =
   | Secondary
   | Delete
   | Success
-
 type btnBgVariant = Solid | Subtle | NoFill
-
 type buttonSize = Large | Medium | Small
-
 type badgeColor =
   | BadgeBlue
   | NoBadge
@@ -17,6 +14,8 @@ type badge = {
   value: string,
   color: badgeColor,
 }
+
+let defaultBadge = [("value", "1"), ("color", "NoBadge")]->Js.Dict.fromArray
 
 let getBGColor = (~buttonType, ~buttonState, ~btnBgVariant: btnBgVariant, ()) =>
   switch buttonType {
@@ -214,8 +213,8 @@ let make = (
   ~buttonType="Primary",
   ~btnBgVariant="Solid",
   ~isDropdownOpen=false,
-  ~buttonVariant: buttonVariant=Fit, //declare str => variant
-  ~buttonSize=Large, //declare str => variant
+  ~buttonVariant="Fit",
+  ~buttonSize="Large",
   ~leftIcon: option<React.element>=?,
   ~rightIcon: option<React.element>=?,
   ~type_="button",
@@ -224,10 +223,7 @@ let make = (
   ~onEnterPress=true,
   ~onClick=?,
   ~allowButtonTextMinWidth=true,
-  ~badge: badge={
-    value: 1->Belt.Int.toString,
-    color: NoBadge,
-  },
+  ~badge=defaultBadge,
   ~ellipsisOnly=false,
   ~isPhoneDropdown=false,
 ) => {
@@ -247,6 +243,27 @@ let make = (
   | "Subtle" => Subtle
   | "NoFill" => NoFill
   | _ => Solid
+  }
+  let buttonVariant = switch buttonVariant {
+  | "Long" => Long
+  | "Full" => Full
+  | "Rounded" => Rounded
+  | _ => Fit
+  }
+  let buttonSize = switch buttonSize {
+  | "Medium" => Medium
+  | "Small" => Small
+  | _ => Large
+  }
+  let badge: badge = {
+    value: badge->Js.Dict.get("value")->Belt.Option.getWithDefault("1"),
+    color: {
+      let color = badge->Js.Dict.get("color")->Belt.Option.getWithDefault("NoBadge")
+      switch color {
+      | "BadgeBlue" => BadgeBlue
+      | _ => NoBadge
+      }
+    },
   }
 
   let customTextOverFlowClass = "overflow-hidden"

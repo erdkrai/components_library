@@ -105,8 +105,8 @@ function ButtonsDemo$ButtonsList(props) {
                                             children: [
                                               JsxRuntime.jsx("div", {
                                                     children: [
-                                                        /* Fit */0,
-                                                        /* Long */1
+                                                        "Fit",
+                                                        "Long"
                                                       ].map(function (buttonVariant, index) {
                                                           return JsxRuntime.jsx(Button.make, {
                                                                       buttonState: buttonState,
@@ -114,7 +114,7 @@ function ButtonsDemo$ButtonsList(props) {
                                                                       buttonType: heading,
                                                                       btnBgVariant: btnBgVariant,
                                                                       buttonVariant: buttonVariant,
-                                                                      buttonSize: /* Large */0,
+                                                                      buttonSize: "Large",
                                                                       leftIcon: Caml_option.some(leftIcon),
                                                                       rightIcon: Caml_option.some(rightIcon)
                                                                     }, "Medium - " + String(index));
@@ -123,8 +123,8 @@ function ButtonsDemo$ButtonsList(props) {
                                                   }),
                                               JsxRuntime.jsx("div", {
                                                     children: [
-                                                        /* Fit */0,
-                                                        /* Long */1
+                                                        "Fit",
+                                                        "Long"
                                                       ].map(function (buttonVariant, index) {
                                                           return JsxRuntime.jsx(Button.make, {
                                                                       buttonState: buttonState,
@@ -132,7 +132,7 @@ function ButtonsDemo$ButtonsList(props) {
                                                                       buttonType: heading,
                                                                       btnBgVariant: btnBgVariant,
                                                                       buttonVariant: buttonVariant,
-                                                                      buttonSize: /* Medium */1,
+                                                                      buttonSize: "Medium",
                                                                       leftIcon: Caml_option.some(leftIcon),
                                                                       rightIcon: Caml_option.some(rightIcon)
                                                                     }, "Small - " + String(index));
@@ -141,8 +141,8 @@ function ButtonsDemo$ButtonsList(props) {
                                                   }),
                                               JsxRuntime.jsx("div", {
                                                     children: [
-                                                        /* Fit */0,
-                                                        /* Long */1
+                                                        "Fit",
+                                                        "Long"
                                                       ].map(function (buttonVariant, index) {
                                                           return JsxRuntime.jsx(Button.make, {
                                                                       buttonState: buttonState,
@@ -150,7 +150,7 @@ function ButtonsDemo$ButtonsList(props) {
                                                                       buttonType: heading,
                                                                       btnBgVariant: btnBgVariant,
                                                                       buttonVariant: buttonVariant,
-                                                                      buttonSize: /* Small */2,
+                                                                      buttonSize: "Small",
                                                                       leftIcon: Caml_option.some(leftIcon),
                                                                       rightIcon: Caml_option.some(rightIcon)
                                                                     }, "XSmall - " + String(index));
