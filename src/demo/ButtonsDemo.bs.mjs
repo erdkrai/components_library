@@ -185,7 +185,7 @@ function ButtonsDemo(props) {
                       heading: "Success"
                     })
               ],
-              className: "flex flex-1 flex-col overflow-scroll p-12"
+              className: "flex flex-col p-8 overflow-auto w-full h-full"
             });
 }
 

@@ -141,7 +141,7 @@ module ButtonsList = {
 
 @react.component
 let make = () => {
-  <div className="flex flex-1 flex-col overflow-scroll p-12">
+  <div className="flex flex-col p-8 overflow-auto w-full h-full">
     <ButtonsList heading="Primary" />
     <ButtonsList heading="Secondary" />
     <ButtonsList heading="Delete" />
