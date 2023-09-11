@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 :before,
 :after {
@@ -909,7 +913,3 @@ video {
         max-width: 20rem
     }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
