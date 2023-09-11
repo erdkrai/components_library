@@ -1,4 +1,5 @@
 %%raw("import './index.css'")
+%%raw(`require("./index.css")`)
 %%raw(`import "tailwindcss/tailwind.css"`)
 let \"Button" = Button.make
 // switch ReactDOM.querySelector("#root") {

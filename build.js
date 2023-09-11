@@ -3,7 +3,7 @@ const inlineImage = require("esbuild-plugin-inline-image");
 
 esbuild
   .build({
-    entryPoints: ["./src/Main.bs.mjs"],
+    entryPoints: ["./src/Main.bs.js"],
     outfile: "index.mjs",
     minify: true,
     bundle: true,
